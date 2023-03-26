@@ -1,22 +1,26 @@
+//jogo do enforcado
+
 #include <stdio.h>
+#include <string.h>
 
-int main(void) {
-  printf("---***************************************---\n");
-  printf("| ✨ Olá, bem-vindo ao jogo de adivinhação ✨ |\n");
-  printf("---***************************************---\n\n");
+int main() {
+  char palavrasecreta [20];
+  sprintf(palavrasecreta, "AMARELO");
 
-  int numerosecreto, chute;
+  int acertou=0;
+  int enforcou=1;
 
-  numerosecreto=42;
+  do {
+    char chute;
+    scanf("%c", &chute);
 
-  printf("\n Qual é o seu chute? ");
-  scanf("%d", &chute);
-    printf("Seu chute foi: %d", chute);
-  
-    /* como declarar uma variavel:
-    printf("\nO número secreto é %d não conta para ninguém!!", numerosecreto);
-    */
-
-  
+    for(int i=0; i< strlen(palavrasecreta); i++){
+      if(palavrasecreta[i]== chute){
+        printf("A posição %d tem essa letra\n", i);
+      }
+    }
+    
+  } while (!acertou && !enforcou);
+    
   return 0;
 }
